@@ -470,5 +470,46 @@ if (message.content.startsWith('صراحة')) { //لاست كودز
   message.react("??") //لاست كودز
 } //لاست كودز
 }); //لاست كودز
+antispam(client, {
+  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
+  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
+  interval: 1000, // مقدار الوقت قبل حصول باند
+  warningMessage: "*** بطل سبام ***", // رسالة تحذير اذا سوا سبام!
+  roleMessage: "***مبروك على الميوت يا بتاع السبام***", // الرسالة الي تجي اذا شخص اخذ ميوت
+  roleName: "Muted", // اسم رتبة الميوت
+  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
+  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
+  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية
+client.on('message', message=> {
+    if (message.author.bot) return;
+    if (message.isMentioned(client.user))
+    {
+    message.reply(" كيف اقدر اساعدك!!");
+	
+ message.reply(" هلا");
+	
+	 message.reply(" لا تزعجني");
+	
+	 message.reply(" ياخي فك يو مان!!");
+    }
+});
+
+client.on('guildMemberAdd', msg => { 
+    var embed = new Discord.RichEmbed()
+    .setAuthor(msg.user.username, msg.user.avatarURL)
+    .setThumbnail(msg.user.avatarURL)
+    .setImage('https://www.9or.top/wp-content/uploads/2018/07/5b3ec4af2dd53_9ddb3664b3aab81124278305f6980d41-1.jpg')     
+    .setTitle('New Member!')
+    .setDescription('Welcome To server')
+    .addField('**ID Member:',"" +  msg.user.id, true)
+    .addField('**Tag Member**', msg.user.discriminator, true)
+    .addField('**Member Created At', msg.user.createdAt, true)
+    .addField(' 👤   You Number',`**[ ${msg.guild.memberCount} ]**`,true)
+    .setColor('GREEN')
+    .setFooter(msg.guild.name, msg.guild.iconURL, true)
+    var channel = msg.guild.channels.find('name', 'chat')         
+    if (!channel) return;
+    channel.send({embed : embed});
+    });
 
 client.login(process.env.BOT_TOKEN);
