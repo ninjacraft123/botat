@@ -89,28 +89,6 @@ client.on('message', message => { // هاذا للبرودكسات
 	}
 });
 	
-	client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return; 
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField(':running_shirt_with_sash: | name :  ',`${member}`)
-        .addField(':loudspeaker: | نورت السيرفر ي قلبي', `Welcome to the server ${member}`)
-        .addField('User ID :', `"[" + ${member.id} + "]"` )
-                .addField(':arrow_down:',`** انت العضو رقم ${member.guild.memberCount}**`)
-
-                  .addField("Name:",`**<@${member.id}>**`, true)
-
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-
-     .setFooter('Server To Legends')
-        .setTimestamp()
-
-      channel.sendEmbed(embed);
-});
-
     client.on('message', message => { // Falsteni Is Here
     const responses = [
     'yes', 'no', 'خليك في حالك', 'شفلك كلبه', 'sure', 'ask me later', 'Fuck you','شكرا'
@@ -139,7 +117,6 @@ var prefix = 'L'
      }
 });
 
-
 client.on('message', message => {
     if(message.content.includes('discord.gg')){
                                             if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
@@ -150,13 +127,9 @@ client.on('message', message => {
 }
 });
 
-
-
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","<===member===>"));
     });
-
-
 
 client.on("message", message => {
     var prefix = "L";
@@ -176,9 +149,7 @@ client.on("message", message => {
           text: "©KBOOSHDev"
         }
       }}).then(msg => {msg.delete(3000)});
-                          }
-
-     
+                          }   
 });
 
 
@@ -480,17 +451,18 @@ antispam(client, {
   maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
   maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
   time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية
+
 client.on('message', message=> {
-    if (message.author.bot) return;
-    if (message.isMentioned(client.user))
-    {
-    message.reply(" كيف اقدر اساعدك!!");
+   if (message.author.bot) return;
+   if (message.isMentioned(client.user))
+   {
+   message.reply(" كيف اقدر اساعدك!!");
 	
  message.reply(" هلا");
 	
-	 message.reply(" لا تزعجني");
+message.reply(" لا تزعجني");
 	
-	 message.reply(" ياخي فك يو مان!!");
+message.reply(" ياخي فك يو مان!!");
     }
 });
 
