@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+const prefix = "L";
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -33,7 +33,6 @@ client.on('guildMemberAdd', member => {
       channel.sendEmbed(embed);
 });
 
-const prefix = 'L'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`Lhelp `,"https://www.twitch.tv/dggamingbot")
@@ -508,9 +507,9 @@ client.on('guildMemberAdd', member => {
   });
 	
 });
+
   client.on("message", message => {
   if (message.author.bot) return;	  
-const prefix = "L";
     if(!message.channel.guild) return;
 if (message.content.startsWith(prefix + "profile")) {
                                let user = message.mentions.users.first();
