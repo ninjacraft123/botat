@@ -507,7 +507,7 @@ client.on('guildMemberAdd', member => {
  client.on("message", message => {
   if (message.author.bot) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + "pc")) {
+ if (message.content === "Lbc") {
                                let user = message.mentions.users.first();
          var men = message.mentions.users.first();
             var heg;
