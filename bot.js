@@ -9,6 +9,28 @@ client.on('message', msg => {
   if (msg.content === 'هنا') {
     msg.reply('الملك ماستر');
   }
+	
+});
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return; 
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField(':running_shirt_with_sash: | name :  ',`${member}`)
+        .addField(':loudspeaker: | نورت السيرفر ي قلبي', `Welcome to the server ${member}`)
+        .addField('User ID :', `"[" + ${member.id} + "]"` )
+                .addField(':arrow_down:',`** انت العضو رقم ${member.guild.memberCount}**`)
+
+                  .addField("Name:",`**<@${member.id}>**`, true)
+
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+
+     .setFooter('Server To Legends')
+        .setTimestamp()
+
+      channel.sendEmbed(embed);
 });
 
 const prefix = 'L'
@@ -108,7 +130,6 @@ client.on('message', message => { // هاذا للبرودكسات
         } // Falsteni Is Here
     }); // Falsteni Is Here
 	
-
  client.on('message', message => { // هيلب كوماند
 var prefix = 'L'
     if (message.author.bot) return;
@@ -152,7 +173,6 @@ client.on("message", message => {
                           }   
 });
 
-
 client.on('message', message => {
   var prefix = "L";
   if (message.author.bot) return;
@@ -174,7 +194,6 @@ client.channels.get(`الايدي بتاع الروم ال\ي سيتم عرض ا
         });
     }
 });
-
 
 client.on('message', function(msg) {
          var prefix = "L"
@@ -246,7 +265,6 @@ message.author.sendEmbed(embed)
 }
 }); 
 
- 
  const cuttweet = [
      'كت تويت ‏| تخيّل لو أنك سترسم شيء وحيد فيصبح حقيقة، ماذا سترسم؟',
      'كت تويت | أكثر شيء يُسكِت الطفل برأيك؟',
@@ -466,22 +484,5 @@ message.reply(" ياخي فك يو مان!!");
     }
 });
 
-client.on('guildMemberAdd', msg => { 
-    var embed = new Discord.RichEmbed()
-    .setAuthor(msg.user.username, msg.user.avatarURL)
-    .setThumbnail(msg.user.avatarURL)
-    .setImage('https://www.9or.top/wp-content/uploads/2018/07/5b3ec4af2dd53_9ddb3664b3aab81124278305f6980d41-1.jpg')     
-    .setTitle('New Member!')
-    .setDescription('Welcome To server')
-    .addField('**ID Member:',"" +  msg.user.id, true)
-    .addField('**Tag Member**', msg.user.discriminator, true)
-    .addField('**Member Created At', msg.user.createdAt, true)
-    .addField(' 👤   You Number',`**[ ${msg.guild.memberCount} ]**`,true)
-    .setColor('GREEN')
-    .setFooter(msg.guild.name, msg.guild.iconURL, true)
-    var channel = msg.guild.channels.find('name', 'chat')         
-    if (!channel) return;
-    channel.send({embed : embed});
-    });
 
 client.login(process.env.BOT_TOKEN);
