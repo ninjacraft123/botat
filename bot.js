@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "L" // برفكس
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -12,6 +11,32 @@ client.on('message', msg => {
   }
 });
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`LastCodes4Ever  `,"https://www.twitch.tv/dggamingbot")
+  console.log('')
+  console.log('')
+  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+  console.log(`[Start] ${new Date()}`);
+  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════════════════════════════]╗');
+  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log('')
+  console.log('Informations :')
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('╚[════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log(' Bot Is Online')
+  console.log('╚[════════════]╝')
+  console.log('')
+  console.log('')
+});
+ 
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
@@ -97,8 +122,6 @@ client.on('message', message => {
 });
 
 
-
-
 client.on("message", message => {
     var prefix = "L";
     var args = message.content.split(' ').slice(1);
@@ -146,7 +169,6 @@ client.on("message", message => {
         }
     }
 });
-
 
 
 client.on('guildMemberAdd', member=> {
@@ -216,27 +238,6 @@ client.on('message', message => {
 });
 
 
-
-client.on('message', function(msg) {
-         var prefix = "L!"
-    if(msg.content.startsWith (prefix  + 'server')) {
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField(':globe_with_meridians:** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField(':medal:** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField(':red_circle:**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField(':large_blue_circle:**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField(':pencil:**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField(':microphone:**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField(':crown:**__ الأونـر__**',`**${msg.guild.owner}**`,true)
-      .addField(':id:**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-      .addField(':date:**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
-      msg.channel.send({embed:embed});
-    }
-  });
-  
 client.on('message', message => {
     var prefix = "L";
 if(!message.channel.guild) return;
@@ -279,7 +280,6 @@ message.channel.send(args)
         }
 });
 
-
 client.on("message", (message) => {
 if (message.content.startsWith("Lct")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -290,8 +290,6 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 }
 });
 
-
-
 client.on("message", (message) => {
 if (message.content.startsWith("Lcv")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -301,9 +299,6 @@ if (message.content.startsWith("Lcv")) {
     
 }
 });
-
-
-
 
 client.on('message', message => {
     if(message.content === "Lbot") {
@@ -333,8 +328,6 @@ client.on('message', message => {
                         }
                     });
 					
-
-
 console.log('mariam ra7t tmot al nas');
 client.on('ready', () => {
   console.log(`im redey`);
@@ -399,8 +392,6 @@ const zead = [
   }
 });
 
-
- 
  const cuttweet = [
      'كت تويت ‏| تخيّل لو أنك سترسم شيء وحيد فيصبح حقيقة، ماذا سترسم؟',
      'كت تويت | أكثر شيء يُسكِت الطفل برأيك؟',
@@ -444,8 +435,6 @@ const zead = [
     }
 });
 
-
-
 const secreT = [
   "**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
   "**كى تعيش عليك ان تتقن فن التجاهل باحتراف**.",
@@ -459,8 +448,6 @@ const secreT = [
   "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
   "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
 ]
-
-
  client.on('message', message => {
    if (message.content.startsWith("خواطر")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
@@ -474,7 +461,6 @@ const secreT = [
   console.log('[id] Send By: ' + message.author.username)
     }
 });
-
 
 client.on('message', message => {
     var prefix = "L"
@@ -515,8 +501,6 @@ client.on('message', message => {
 }
 });
 
-
-
 client.on('message', message => {
     if (message.content === "Lserver") {
         if (!message.channel.guild) return
@@ -543,9 +527,6 @@ client.on('message', message => {
      }
     });
 
-
-
-
   client.on('message', message => {
     if (message.content === "Lrooms") {
                       if (!message.guild) return;
@@ -560,7 +541,6 @@ client.on('message', message => {
         message.channel.sendEmbed(embed);
     }
 });
-
 
     client.on('message', message => {
               if (!message.channel.guild) return;
@@ -579,7 +559,6 @@ client.on('message', message => {
       message.channel.send(IzRo);
     });
   
- 
     client.on('message', message => {
      if (message.content === "Lid") {
      let embed = new Discord.RichEmbed()
@@ -598,9 +577,6 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-
-
-
 
 client.on('message', message => {
   if (message.content.startsWith('فعلني')) {
@@ -623,7 +599,6 @@ client.on('message', msg => {
 });
 
 
- 
  const perfix = 'L';
 client.on('message', msg => {
  if (msg.content.startsWith(prefix + 'send')) {
@@ -743,7 +718,6 @@ const Sra7a = [
         }
        });
 
-      
 var prefix = "L" 
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
@@ -956,10 +930,9 @@ Lqueue ⇏ لمعرفة قآئمة التشغيل
    }
    });
  
- 
- 
-const devs = ['الايدي تبعك' , '' , '' , ''];
-const adminprefix = "-";
+
+const devs = ['401441334864510986'];
+const adminprefix = "L";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
@@ -982,8 +955,6 @@ client.on('message', message => {
   }
   });
  
-
-
 client.on("message", message => {
  if (message.content === "Lhelp") {
         message.react("😘")
@@ -1046,7 +1017,6 @@ client.on("message", message => {
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
-
 `)
 
 message.author.sendEmbed(embed)
@@ -1054,6 +1024,4 @@ message.author.sendEmbed(embed)
 }
 }); 
 
-
-   
 client.login(process.env.BOT_TOKEN);
