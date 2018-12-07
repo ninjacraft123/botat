@@ -389,7 +389,8 @@ client.on('message', message => {
     }
 });
 
-client.on('message', async msg => { 
+client.on('message', async msg => {
+var prefix = 'L'	
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
     
