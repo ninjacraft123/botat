@@ -389,11 +389,10 @@ client.on('message', message => {
     }
 });
 
-client.on('message', async msg => {
-var prefix = 'L'	
+client.on('message', async msg => {	
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
-    
+   
     const args = msg.content.split(' ');
 	const searchString = args.slice(1).join(' ');
     
@@ -403,7 +402,7 @@ var prefix = 'L'
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-	if (command === `play`) {
+	if (command === `Lplay`) {
 		const voiceChannel = msg.member.voiceChannel;
         
         if (!voiceChannel) return msg.channel.send("انت لم تدخل روم صوتي");
@@ -453,7 +452,7 @@ var prefix = 'L'
                     .setDescription(`
                     ${videos.map(video2 => `${++index}. **${video2.title}**`).join('\n')}`)
                     
-					.setColor("#f7abab")
+					.setColor("Lf7abab")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 					
 /////////////////					
@@ -483,7 +482,7 @@ var prefix = 'L'
             
         }
         
-	} else if (command === `skip`) {
+	} else if (command === `Lskip`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
         if (!serverQueue) return msg.channel.send("ليست هناك اغاني ليتم التخطي");
@@ -491,7 +490,7 @@ var prefix = 'L'
 		serverQueue.connection.dispatcher.end('تم تخطي الاغنية');
         return undefined;
         
-	} else if (command === `stop`) {
+	} else if (command === `Lstop`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
         if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
@@ -500,7 +499,7 @@ var prefix = 'L'
 		serverQueue.connection.dispatcher.end('تم ايقاف الاغنية لقد خرجت من الروم الصوتي');
         return undefined;
         
-	} else if (command === `vol`) {
+	} else if (command === `Lvol`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
 		if (!serverQueue) return msg.channel.send('يعمل الامر فقط عند تشغيل مقطع صوتي');
@@ -511,14 +510,14 @@ var prefix = 'L'
         
         return msg.channel.send(`درجة الصوت الان**${args[1]}**`);
 
-	} else if (command === `np`) {
+	} else if (command === `Lnp`) {
 
 		if (!serverQueue) return msg.channel.send('There is no Queue!');
 		const embedNP = new Discord.RichEmbed()
 	    .setDescription(`Now playing **${serverQueue.songs[0].title}**`)
         return msg.channel.sendEmbed(embedNP);
         
-	} else if (command === `queue`) {
+	} else if (command === `Lqueue`) {
 		
 		if (!serverQueue) return msg.channel.send('There is no Queue!!');
 		let index = 0;
@@ -537,7 +536,7 @@ var prefix = 'L'
 			return msg.channel.send('تم الايقاف');
 		}
 		return msg.channel.send('في انتظار تشغيل المقطع');
-	} else if (command === "resume") {
+	} else if (command === "Lresume") {
 
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
