@@ -185,7 +185,7 @@ client.on('message', message => {
 client.on("message", message => {
 var prefix = "L";
         if(message.content.startsWith(prefix + "say")) {
-    if(message.author.id !== "465485850432765963") return message.reply("هذا الامر لصحاب البوت فقط");
+    if(message.author.id !== "401441334864510986") return message.reply("هذا الامر لصحاب البوت فقط");
         let args = message.content.split(" ").slice(1);
 message.channel.send(args)
         }
