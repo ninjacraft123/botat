@@ -670,4 +670,8 @@ client.on('guildMemberRemove', member => {
  
 });
 
+client.on('ready',async () => {
+  client.channels.find(ch => ch.id === "512325679241756682" && ch.type === 'voice').join();
+});
+
 client.login(process.env.BOT_TOKEN);
